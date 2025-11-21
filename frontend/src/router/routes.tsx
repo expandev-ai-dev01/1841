@@ -7,6 +7,10 @@ const HomePage = lazy(() =>
   import('@/pages/Home').then((module) => ({ default: module.HomePage }))
 );
 
+const PurchasesPage = lazy(() =>
+  import('@/pages/Purchases').then((module) => ({ default: module.PurchasesPage }))
+);
+
 const NotFoundPage = lazy(() =>
   import('@/pages/NotFound').then((module) => ({ default: module.NotFoundPage }))
 );
@@ -29,6 +33,10 @@ const routes = createBrowserRouter([
       {
         index: true,
         element: <HomePage />,
+      },
+      {
+        path: 'purchases',
+        element: <PurchasesPage />,
       },
       {
         path: '*',

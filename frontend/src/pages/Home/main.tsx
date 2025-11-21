@@ -1,7 +1,10 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/core/components/card';
 import { Button } from '@/core/components/button';
+import { useNavigation } from '@/core/hooks/useNavigation';
 
 function HomePage() {
+  const { navigate } = useNavigation();
+
   return (
     <div className="space-y-8">
       <section className="text-center">
@@ -26,7 +29,7 @@ function HomePage() {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <Button variant="outline" className="w-full">
+            <Button variant="outline" className="w-full" onClick={() => navigate('/purchases')}>
               Acessar Registros
             </Button>
           </CardContent>
@@ -57,7 +60,7 @@ function HomePage() {
             <CardDescription>Visualize o histórico completo de compras</CardDescription>
           </CardHeader>
           <CardContent>
-            <Button variant="outline" className="w-full">
+            <Button variant="outline" className="w-full" onClick={() => navigate('/purchases')}>
               Ver Histórico
             </Button>
           </CardContent>
@@ -69,7 +72,9 @@ function HomePage() {
         <p className="mb-4 text-muted-foreground">
           Adicione seu primeiro registro de compra e comece a controlar seus gastos
         </p>
-        <Button size="lg">Adicionar Primeira Compra</Button>
+        <Button size="lg" onClick={() => navigate('/purchases')}>
+          Adicionar Primeira Compra
+        </Button>
       </section>
     </div>
   );
